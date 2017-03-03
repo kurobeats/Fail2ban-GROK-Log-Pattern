@@ -1,0 +1,15 @@
+{
+  "id" : null,
+  "name" : "Fail2ban GROK Log Pattern",
+  "description" : "Fail2ban GROK Log Pattern",
+  "category" : "GROK",
+  "inputs" : [ ],
+  "streams" : [ ],
+  "outputs" : [ ],
+  "dashboards" : [ ],
+  "grok_patterns" : [ {
+    "name" : "FAIL2BAN_LOG",
+    "pattern" : "%{TIMESTAMP_ISO8601:timestamp},%{INT:fail2ban_digit} fail2ban.%{WORD:fail2ban_action} *\[%{INT:fail2ban_digit2}\]: %{LOGLEVEL:level} *\[%{WORD:service}\] %{WORD:ban_status} %{IPV4:clientip}"
+  }
+  ]
+}

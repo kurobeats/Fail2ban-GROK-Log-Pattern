@@ -1,15 +1,4 @@
-{
-  "id" : null,
-  "name" : "Fail2ban GROK Log Pattern",
-  "description" : "Fail2ban GROK Log Pattern",
-  "category" : "GROK",
-  "inputs" : [ ],
-  "streams" : [ ],
-  "outputs" : [ ],
-  "dashboards" : [ ],
-  "grok_patterns" : [ {
-    "name" : "FAIL2BAN_LOG",
-    "pattern" : "%{TIMESTAMP_ISO8601:[f2b][timestamp]},%{INT:[f2b][fail2ban_digit]} fail2ban.%{WORD:[f2b][fail2ban_action]} *\[%{INT:[f2b][fail2ban_digit2]}\]: %{LOGLEVEL:[f2b][loglevel]} *\[%{GREEDYDATA:[f2b][service]}\] %{WORD:[f2b][ban_status]} %{IP:[f2b][clientip]}"
+grok {
+  match => { "message" => "%{TIMESTAMP_ISO8601:[f2b][timestamp]},%{INT:[f2b][fail2ban_digit]} fail2ban.%{WORD:[f2b][fail2ban_action]} *\[%{INT:[f2b][fail2ban_digit2]}\]: %{LOGLEVEL:[f2b][loglevel]} *\[%{GREEDYDATA:[f2b][service]}\] %{WORD:[f2b][ban_status]} %{IP:[f2b][clientip]}"
   }
-  ]
 }
